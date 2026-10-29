@@ -206,7 +206,25 @@ termux-restore /sdcard/termux-backup.tar.gz
 This is a fast device clone, not clean reprovisioning: it carries cookies,
 keys, logs and device-specific state. Prefer `setup.sh` for a new device.
 
-## 12. Verification checklist
+## 12. Updating later
+
+The checkout lives at `~/TermuxSetup`. To update the installed scripts:
+
+```bash
+~/TermuxSetup/update.sh
+```
+
+or use the **Update Setup** Termux:Widget shortcut. It runs:
+
+```bash
+git -C ~/TermuxSetup pull --ff-only
+bash ~/TermuxSetup/install.sh
+```
+
+A bare `git pull` only updates the checkout; `install.sh` is what copies the
+files into `~/.local/bin` and the other managed locations.
+
+## 13. Verification checklist
 
 - [ ] `termux-info` shows the expected Android/Termux versions
 - [ ] all Termux plugin packages are installed and signed the same
