@@ -7,6 +7,10 @@
 # point yt-dlp at that profile.
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+CLEAN_URL="$SCRIPT_DIR/clean-url.sh"
+[ -x "$CLEAN_URL" ] || CLEAN_URL="$HOME/.local/bin/clean-url.sh"
+
 PROFILE="$HOME/.mozilla/firefox/tablet"
 
 if [ ! -f "$PROFILE/cookies.sqlite" ]; then
@@ -41,4 +45,18 @@ fi
 out="${YTDLP_OUT:-$default_out}"
 mkdir -p "$out"
 
-exec yt-dlp "${cookie_args[@]}" --js-runtimes deno -P "$out" "$@"
+# Strip X/Twitter tracking parameters before yt-dlp sees the URL. Other sites
+# keep their query string (YouTube needs ?v=, ?list=, ?t=, etc.).
+args=()
+for arg in "$@"; do
+  case "$arg" in
+    http://*|https://*)
+      if [ -x "$CLEAN_URL" ]; then
+        arg="$("$CLEAN_URL" "$arg")"
+      fi
+      ;;
+  esac
+  args+=("$arg")
+done
+
+exec yt-dlp "${cookie_args[@]}" --js-runtimes deno -P "$out" "${args[@]}"
