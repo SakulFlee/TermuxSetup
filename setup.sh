@@ -174,11 +174,11 @@ log "Installing scripts and desktop configuration"
 log "Provisioning Termux storage and services"
 if [ "$ASSUME_YES" -eq 0 ]; then
   echo
-  echo "Android will now ask for storage access. Grant it, then press Enter."
+  echo "The next step asks for storage access. Grant it when Android prompts."
   if [ -t 0 ]; then
-    read -r _
+    read -r -p "Press Enter to continue..." _
   else
-    sleep 5
+    sleep 2
   fi
 fi
 ( cd "$ROOT" && bash ./provision.sh )
