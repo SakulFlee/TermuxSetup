@@ -52,7 +52,7 @@ for arg in "$@"; do
   case "$arg" in
     http://*|https://*)
       if [ -x "$CLEAN_URL" ]; then
-        arg="$("$CLEAN_URL" "$arg")"
+        arg="$(bash "$CLEAN_URL" "$arg")"
       fi
       ;;
   esac

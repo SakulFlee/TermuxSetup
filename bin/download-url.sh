@@ -6,7 +6,7 @@ BIN="$HOME/.local/bin"
 
 clip="$(termux-clipboard-get 2>/dev/null || true)"
 if [ -n "$clip" ] && [ -x "$BIN/clean-url.sh" ]; then
-  clip="$("$BIN/clean-url.sh" "$clip")"
+  clip="$(bash "$BIN/clean-url.sh" "$clip")"
 fi
 data="$(termux-dialog -t "yt-dlp download" -i "${clip:-https://}" 2>/dev/null || true)"
 url="$(printf '%s' "$data" | jq -r '.text // empty' 2>/dev/null || true)"

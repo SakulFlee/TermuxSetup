@@ -29,7 +29,7 @@ fi
 
 # X/Twitter status links carry account/device tracking in the query string.
 if [ -x "$BIN/clean-url.sh" ]; then
-  url="$("$BIN/clean-url.sh" "$url")"
+  url="$(bash "$BIN/clean-url.sh" "$url")"
 fi
 
 command -v termux-toast >/dev/null 2>&1 && termux-toast "Starting download..." || true
