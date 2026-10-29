@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/sh
+export HOME=/data/data/com.termux/files/home
+export PATH=/data/data/com.termux/files/usr/bin:$PATH
+exec /data/data/com.termux/files/usr/bin/syncthing serve \
+  --home /data/data/com.termux/files/home/.local/state/syncthing \
+  --gui-address=127.0.0.1:8384 \
+  --no-browser

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Stop
+Comment=Stop the X11 desktop
+Exec=/data/data/com.termux/files/home/.local/bin/stop-desktop.sh
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/system-shutdown.png
+Terminal=false
+Categories=System;
+StartupNotify=false

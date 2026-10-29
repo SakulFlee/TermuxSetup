@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Close
+Comment=Close the active window
+Exec=/data/data/com.termux/files/home/.local/bin/close-window.sh
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/window-close.png
+Terminal=false
+Categories=Utility;
+StartupNotify=false

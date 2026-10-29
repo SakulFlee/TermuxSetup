@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Window Manager
+Comment=Openbox configuration
+Exec=/data/data/com.termux/files/home/.local/bin/open-app.sh obconf
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/preferences-system.png
+Terminal=false
+Categories=Settings;
+StartupNotify=false

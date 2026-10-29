@@ -1,0 +1,25 @@
+/* Larger touch targets for the tablet profile. */
+
+#nav-bar toolbarbutton {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+#TabsToolbar .tab-close-button {
+  width: 30px;
+  height: 30px;
+}
+
+#PersonalToolbar {
+  min-height: 42px;
+}
+
+#urlbar {
+  font-size: 1.1em;
+  min-height: 42px;
+}
+
+#PanelUI-menu-button {
+  min-width: 48px;
+  min-height: 48px;
+}

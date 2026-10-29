@@ -1,0 +1,20 @@
+Port 8022
+AddressFamily any
+ListenAddress 0.0.0.0
+
+HostKey /data/data/com.termux/files/usr/etc/ssh/ssh_host_ed25519_key
+HostKey /data/data/com.termux/files/usr/etc/ssh/ssh_host_rsa_key
+
+PubkeyAuthentication yes
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitEmptyPasswords no
+PermitRootLogin no
+
+AuthorizedKeysFile .ssh/authorized_keys
+StrictModes no
+PrintMotd no
+AllowTcpForwarding yes
+X11Forwarding no
+Subsystem sftp internal-sftp
+LogLevel VERBOSE

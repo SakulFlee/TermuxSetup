@@ -1,0 +1,53 @@
+* {
+    bg: #1e1e2e;
+    fg: #cdd6f4;
+    selected: #89b4fa;
+    selected-fg: #11111b;
+    font: "DejaVu Sans 12";
+}
+
+window {
+    width: 92%;
+    height: 82%;
+    border: 0;
+    padding: 0;
+}
+
+mainbox {
+    padding: 20px;
+    spacing: 16px;
+}
+
+inputbar {
+    padding: 8px 12px;
+    background-color: #313244;
+    text-color: #cdd6f4;
+}
+
+listview {
+    columns: 4;
+    lines: 4;
+    spacing: 18px;
+    padding: 8px;
+    scrollbar: false;
+}
+
+element {
+    padding: 10px;
+    spacing: 8px;
+    border-radius: 10px;
+}
+
+element selected {
+    background-color: #89b4fa;
+    text-color: #11111b;
+}
+
+element-icon {
+    size: 96px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}

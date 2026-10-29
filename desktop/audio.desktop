@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Audio
+Comment=PulseAudio volume control
+Exec=/data/data/com.termux/files/home/.local/bin/open-app.sh audio
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/multimedia-volume-control.png
+Terminal=false
+Categories=AudioVideo;Audio;
+StartupNotify=false

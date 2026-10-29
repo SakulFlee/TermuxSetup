@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Keyboard
+Comment=Toggle the on-screen X11 keyboard
+Exec=/data/data/com.termux/files/home/.local/bin/toggle-keyboard.sh
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/input-keyboard.png
+Terminal=false
+Categories=Utility;
+StartupNotify=false

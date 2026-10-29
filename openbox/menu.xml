@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+  <menu id="root-menu" label="Tablet">
+    <item label="Firefox">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh firefox</command></action>
+    </item>
+    <item label="Terminal">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh terminal</command></action>
+    </item>
+    <item label="Files">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh files</command></action>
+    </item>
+    <item label="App drawer">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh apps</command></action>
+    </item>
+    <separator />
+    <item label="Audio">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh audio</command></action>
+    </item>
+    <item label="Settings">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/open-app.sh settings</command></action>
+    </item>
+    <separator />
+    <item label="Close window">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/close-window.sh</command></action>
+    </item>
+    <item label="Stop desktop">
+      <action name="Execute"><command>/data/data/com.termux/files/home/.local/bin/stop-desktop.sh</command></action>
+    </item>
+  </menu>
+</openbox_menu>

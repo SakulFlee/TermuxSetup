@@ -1,0 +1,27 @@
+[global]
+    font = DejaVu Sans 11
+    width = 420
+    height = 220
+    origin = top-right
+    offset = 12x12
+    frame_width = 2
+    frame_color = "#89b4fa"
+    separator_color = "#45475a"
+    corner_radius = 10
+    transparency = 0
+    idle_threshold = 120
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 8
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
+    timeout = 0

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Apps
+Comment=Open the tablet app drawer
+Exec=/data/data/com.termux/files/home/.local/bin/open-app.sh apps
+Icon=/data/data/com.termux/files/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-other.png
+Terminal=false
+Categories=System;
+StartupNotify=false

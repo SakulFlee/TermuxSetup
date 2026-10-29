@@ -1,0 +1,14 @@
+#!/data/data/com.termux/files/usr/bin/sh
+# Openbox session autostart.
+
+xsetroot -solid "#11111b"
+xrdb -merge "$HOME/.Xresources" 2>/dev/null || true
+
+# Bottom tablet bar: launcher, tasks, tray, clock, battery.
+tint2 -c "$HOME/.config/tint2/tint2rc" &
+
+# Maximise normal windows.
+devilspie2 &
+
+# Desktop notifications (Firefox download finished, etc.).
+dunst >/dev/null 2>&1 &

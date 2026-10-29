@@ -1,0 +1,8 @@
+# Tablet session settings.
+# Plasma is the default; set SESSION=openbox to fall back to the tablet shell.
+SESSION=plasma
+DISPLAY=:0
+DPI=144
+
+# OpenCode over SSH (Dendra, not the homelab server).
+OPENCODE_HOST=sakulflee@192.168.178.109

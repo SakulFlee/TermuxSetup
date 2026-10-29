@@ -1,0 +1,4 @@
+#!/data/data/com.termux/files/usr/bin/sh
+export HOME=/data/data/com.termux/files/home
+export PATH=/data/data/com.termux/files/usr/bin:$PATH
+exec /data/data/com.termux/files/usr/bin/sshd -D -e -f /data/data/com.termux/files/home/.ssh/sshd_config

@@ -1,0 +1,44 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# yt-dlp wrapper that reads the live Firefox cookie database.
+#
+# Firefox keeps recent cookies in cookies.sqlite-wal while it is running.
+# Copying only cookies.sqlite can therefore miss the very cookies you just
+# created by logging in. We copy the DB, WAL and SHM into a temp profile and
+# point yt-dlp at that profile.
+set -euo pipefail
+
+PROFILE="$HOME/.mozilla/firefox/tablet"
+
+if [ ! -f "$PROFILE/cookies.sqlite" ]; then
+  PROFILE=""
+  for root in "$HOME/.mozilla/firefox" "$HOME/.config/mozilla/firefox"; do
+    [ -d "$root" ] || continue
+    for candidate in "$root"/*; do
+      [ -f "$candidate/cookies.sqlite" ] || continue
+      PROFILE="$candidate"
+      break 2
+    done
+  done
+fi
+
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+
+if [ -n "$PROFILE" ] && [ -f "$PROFILE/cookies.sqlite" ]; then
+  cp "$PROFILE"/cookies.sqlite* "$tmp"/ 2>/dev/null || true
+  [ -f "$PROFILE/containers.json" ] && cp "$PROFILE/containers.json" "$tmp"/ || true
+  cookie_args=(--cookies-from-browser "firefox:$tmp")
+else
+  # No Firefox profile yet: public downloads still work without cookies.
+  cookie_args=()
+fi
+
+if [ -d "$HOME/storage/downloads" ]; then
+  default_out="$HOME/storage/downloads/ytdlp"
+else
+  default_out="$HOME/Downloads"
+fi
+out="${YTDLP_OUT:-$default_out}"
+mkdir -p "$out"
+
+exec yt-dlp "${cookie_args[@]}" --js-runtimes deno -P "$out" "$@"
