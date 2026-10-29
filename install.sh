@@ -38,7 +38,7 @@ put() {
 for f in start-desktop.sh stop-desktop.sh open-app.sh firefox-tablet \
          download-clipboard.sh download-url.sh opencode-ssh.sh toggle-keyboard.sh \
          close-window.sh show-desktop.sh set-orientation.sh syncthing-sync.sh \
-         plasma-tune.sh clean-url.sh; do
+         plasma-tune.sh clean-url.sh update.sh; do
   put "$SRC/bin/$f" "$BIN/$f" 755
 done
 put "$SRC/bin/ytdl" "$BIN/ytdl" 755
@@ -64,6 +64,7 @@ if [ -f "$SRC/config.env" ]; then
     printf 'DISPLAY=%q\n' "${DISPLAY:-:0}"
     printf 'DPI=%q\n' "${DPI:-144}"
     printf 'OPENCODE_HOST=%q\n' "${OPENCODE_HOST:-sakulflee@192.168.178.109}"
+    printf 'TERMUX_SETUP_DIR=%q\n' "${TERMUX_SETUP_DIR:-$HOME/TermuxSetup}"
     printf 'SYNCTHING_FOLDER=%q\n' "${SYNCTHING_FOLDER:-/sdcard/Personal}"
     printf 'SYNCTHING_FOLDER_ID=%q\n' "${SYNCTHING_FOLDER_ID:-personal}"
   } > "$CFG/tablet-session"
@@ -129,6 +130,7 @@ make_shortcut "Download URL"        download-url.sh
 make_shortcut "OpenCode"            opencode-ssh.sh
 make_shortcut "Show Desktop"        show-desktop.sh
 make_shortcut "Sync Now"            syncthing-sync.sh
+make_shortcut "Update Setup"        update.sh
 
 # Make ~/.local/bin available in interactive shells.
 MARK="# tablet-shell PATH"

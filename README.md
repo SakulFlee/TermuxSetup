@@ -146,6 +146,18 @@ The Termux:Widget shortcuts created by `install.sh` are:
 - Download URL
 - OpenCode
 - Sync Now
+- Update Setup
+
+**Update Setup** runs `~/.local/bin/update.sh`, which pulls the clone in
+`~/TermuxSetup` and reruns `install.sh`. The manual equivalent is:
+
+```bash
+~/.local/bin/update.sh
+```
+
+Set `TERMUX_SETUP_DIR` in `~/.config/tablet-session` if the checkout lives
+elsewhere. `git pull` alone only updates the checkout; the installer copies
+the managed files into place.
 
 **Download Clipboard** is the one-tap flow: copy a URL, tap it, get a
 notification when the download finishes. **Download URL** opens a native

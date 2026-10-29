@@ -10,3 +10,6 @@ OPENCODE_HOST=sakulflee@192.168.178.109
 # Syncthing folder used by syncthing-sync.sh.
 SYNCTHING_FOLDER=/sdcard/Personal
 SYNCTHING_FOLDER_ID=personal
+
+# Repository checkout used by update.sh.
+TERMUX_SETUP_DIR=$HOME/TermuxSetup

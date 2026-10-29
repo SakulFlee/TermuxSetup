@@ -9,6 +9,9 @@ DPI=144
 # Host that the OpenCode widget connects to.
 OPENCODE_HOST=sakulflee@192.168.178.109
 
+# Where this repository is cloned on the tablet (used by update.sh).
+TERMUX_SETUP_DIR=$HOME/TermuxSetup
+
 # Public key allowed to log in to this device over SSH.
 # This is Dendra's key by default; replace it for another workstation.
 AUTHORIZED_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImnWUykSX10iZYDF4g0bqy/uOXppRwWodtmg3iYBfBS sakulflee@nixos'
