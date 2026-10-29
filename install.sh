@@ -88,6 +88,19 @@ fi
 chmod 600 "$HOME/.ssh/authorized_keys"
 ssh-keygen -A >/dev/null 2>&1 || true
 
+# Outgoing key for the tablet -> workstation direction (OpenCode).
+if command -v ssh-keygen >/dev/null 2>&1; then
+  if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+    ssh-keygen -q -t ed25519 -N "" -C "$(whoami)@$(hostname)" \
+      -f "$HOME/.ssh/id_ed25519" >/dev/null 2>&1 || true
+  fi
+  if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
+    ssh-keygen -y -f "$HOME/.ssh/id_ed25519" > "$HOME/.ssh/id_ed25519.pub" 2>/dev/null || true
+  fi
+  chmod 600 "$HOME/.ssh/id_ed25519" 2>/dev/null || true
+  chmod 644 "$HOME/.ssh/id_ed25519.pub" 2>/dev/null || true
+fi
+
 # Termux:Widget shortcuts.
 make_shortcut() {
   local name="$1" script="$2" arg="${3:-}"

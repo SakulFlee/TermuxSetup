@@ -138,10 +138,12 @@ their query parameters.
 
 ## 9. Syncthing
 
-Start Syncthing once and get the device ID:
+`setup.sh` prints the device ID at the end. If it is missing, generate a
+config/identity and read it:
 
 ```bash
-syncthing serve --home ~/.local/state/syncthing
+syncthing generate --home ~/.local/state/syncthing
+syncthing device-id --home ~/.local/state/syncthing
 ```
 
 Add the device ID to the peer (Dendra or HomeLab) and share the `personal`
@@ -169,7 +171,9 @@ unpauses the folder, waits, pauses it again and stops the service.
 ## 10. SSH
 
 The SSH server starts at boot through Termux:Boot. The key in `config.env` is
-authorized on the tablet.
+authorized on the tablet. The tablet's own public key is
+`~/.ssh/id_ed25519.pub`; add it to the workstation if the OpenCode widget
+should connect out.
 
 From the workstation:
 

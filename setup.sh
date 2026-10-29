@@ -184,6 +184,15 @@ fi
 ( cd "$ROOT" && bash ./provision.sh )
 
 log "Setup complete"
+
+# Generate Syncthing's config/keys if needed, then print the device ID.
+if command -v syncthing >/dev/null 2>&1; then
+  syncthing generate --home "$HOME/.local/state/syncthing" >/dev/null 2>&1 || true
+  syncthing_id="$(syncthing device-id --home "$HOME/.local/state/syncthing" 2>/dev/null | tail -1 || true)"
+else
+  syncthing_id=""
+fi
+
 cat <<EOF
 
 Manual Android steps that cannot be automated from Termux:
@@ -193,10 +202,15 @@ Manual Android steps that cannot be automated from Termux:
   3. Termux -> Battery -> Unrestricted
   4. Start the desktop:  ~/.local/bin/start-desktop.sh
 
+Tablet -> workstation SSH public key (add it to the peer):
+  $(cat "$HOME/.ssh/id_ed25519.pub" 2>/dev/null || echo '(not generated)')
+
+Syncthing device ID (add it to the peer):
+  ${syncthing_id:-(run: syncthing device-id --home ~/.local/state/syncthing)}
+
 Other useful checks:
   - Termux:X11: displayStretch=false, forceOrientation=auto
   - Firefox: log in to the sites you need; ytdl reads the tablet profile
-  - Syncthing: print the device ID and add it to the peer, then run:
-      ~/.local/bin/syncthing-sync.sh --initial
+  - After adding the device, run: ~/.local/bin/syncthing-sync.sh --initial
   - Review $ROOT/config.env for any device-specific values.
 EOF

@@ -283,6 +283,9 @@ peer. The Dendra snippets are in
 - Port: `8022`
 - User: the Termux app UID (normally `u0_a510`; check `whoami`)
 - Key-only; the key in `config.env` is added to `~/.ssh/authorized_keys`.
+- `install.sh` creates `~/.ssh/id_ed25519` if it is missing. Add its `.pub`
+  file to the workstation's `authorized_keys` for the tablet → workstation
+  direction (OpenCode).
 - From a workstation with a `Host tablet` entry:
 
   ```bash
