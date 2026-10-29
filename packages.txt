@@ -1,0 +1,42 @@
+# Termux packages installed by setup.sh.
+# One package per line; blank lines and # comments are ignored.
+# x11-repo is installed separately by setup.sh before this list.
+
+termux-x11-nightly
+plasma
+dolphin
+konsole
+openbox
+tint2
+rofi
+devilspie2
+xvkbd
+pcmanfm
+qterminal
+firefox
+python
+python-yt-dlp
+yt-dlp-ejs
+deno
+ffmpeg
+dbus
+pulseaudio
+openssh
+syncthing
+termux-api
+termux-services
+termux-tools
+termux-am
+git
+curl
+jq
+ttf-dejavu
+pavucontrol
+lxappearance
+obconf-qt
+xorg-xrdb
+xorg-xsetroot
+xorg-xdpyinfo
+wmctrl
+xdotool
+dunst

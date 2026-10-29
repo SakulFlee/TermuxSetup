@@ -1,0 +1,18 @@
+# Copy this file to config.env and adjust for the device.
+# config.env is ignored by git so each device can keep its own values.
+
+# Desktop session. SESSION=openbox uses the lightweight fallback.
+SESSION=plasma
+DISPLAY=:0
+DPI=144
+
+# Host that the OpenCode widget connects to.
+OPENCODE_HOST=sakulflee@192.168.178.109
+
+# Public key allowed to log in to this device over SSH.
+# This is Dendra's key by default; replace it for another workstation.
+AUTHORIZED_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImnWUykSX10iZYDF4g0bqy/uOXppRwWodtmg3iYBfBS sakulflee@nixos'
+
+# Syncthing folder. The folder ID must match the peer's folder ID.
+SYNCTHING_FOLDER=/sdcard/Personal
+SYNCTHING_FOLDER_ID=personal

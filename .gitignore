@@ -1,0 +1,8 @@
+# Local device configuration (copy config.example to config.env)
+config.env
+
+# Installer/runtime artefacts
+*.bak-*
+*.log
+*.part
+cache/

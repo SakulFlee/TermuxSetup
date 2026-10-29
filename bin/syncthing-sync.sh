@@ -11,10 +11,16 @@ set -u
 export HOME PREFIX
 export PATH="$PREFIX/bin:$HOME/.local/bin:$PATH"
 
+# Optional per-device settings written by install.sh.
+if [ -f "$HOME/.config/tablet-session" ]; then
+  . "$HOME/.config/tablet-session"
+fi
+
 SVDIR="$PREFIX/var/service"
 export SVDIR
 SYNC_HOME="$HOME/.local/state/syncthing"
-FOLDER="/sdcard/Personal"
+FOLDER="${SYNCTHING_FOLDER:-/sdcard/Personal}"
+FOLDER_ID="${SYNCTHING_FOLDER_ID:-personal}"
 API="http://127.0.0.1:8384"
 LOG="$HOME/syncthing-sync.log"
 LOCK="$HOME/.cache/syncthing-sync.lock"
@@ -72,7 +78,7 @@ done
 # overwrite it here, so switching to sendreceive later is not undone by the job.
 curl -s -X PATCH -H "X-API-Key: $key" -H 'Content-Type: application/json' \
   -d '{"paused":false}' \
-  "$API/rest/config/folders/personal" >>"$LOG" 2>&1 || log "PATCH unpause failed"
+  "$API/rest/config/folders/$FOLDER_ID" >>"$LOG" 2>&1 || log "PATCH unpause failed"
 
 # Give the remote index a moment to arrive. A freshly wiped folder starts with
 # globalFiles=0/needBytes=0, which must NOT be mistaken for "already in sync".
@@ -81,7 +87,7 @@ sleep 5
 start=$(date +%s)
 result="timeout"
 while :; do
-  status=$(curl -s -H "X-API-Key: $key" "$API/rest/db/status?folder=personal")
+  status=$(curl -s -H "X-API-Key: $key" "$API/rest/db/status?folder=$FOLDER_ID")
   state=$(printf '%s' "$status" | jq -r '.state // "unknown"' 2>/dev/null)
   need=$(printf '%s' "$status" | jq -r '.needBytes // 0' 2>/dev/null)
   global=$(printf '%s' "$status" | jq -r '.globalFiles // 0' 2>/dev/null)
@@ -105,7 +111,7 @@ done
 
 curl -s -X PATCH -H "X-API-Key: $key" -H 'Content-Type: application/json' \
   -d '{"paused":true}' \
-  "$API/rest/config/folders/personal" >>"$LOG" 2>&1 || true
+  "$API/rest/config/folders/$FOLDER_ID" >>"$LOG" 2>&1 || true
 
 sv -w 10 down tablet-syncthing >>"$LOG" 2>&1 || true
 touch "$SVDIR/tablet-syncthing/down"

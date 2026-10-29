@@ -6,3 +6,7 @@ DPI=144
 
 # OpenCode over SSH (Dendra, not the homelab server).
 OPENCODE_HOST=sakulflee@192.168.178.109
+
+# Syncthing folder used by syncthing-sync.sh.
+SYNCTHING_FOLDER=/sdcard/Personal
+SYNCTHING_FOLDER_ID=personal

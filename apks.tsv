@@ -1,0 +1,11 @@
+# Android APKs used by setup.sh.
+# Format: package<TAB>version<TAB>filename<TAB>url<TAB>sha256
+#
+# Termux and all plugins must be installed from the same signing source.
+# The base Termux APK cannot be installed by setup.sh because setup.sh runs
+# inside Termux; it is listed here for reference and for reinstall/repair.
+com.termux	0.118.3	termux-app_v0.118.3+github-debug_universal.apk	https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3%2Bgithub-debug_universal.apk	7600078440c3c34ef050bc009b00fc3215cb87ec4a449e01a696f74cf4249db2
+com.termux.api	0.53.0	termux-api-app_v0.53.0+github.debug.apk	https://github.com/termux/termux-api/releases/download/v0.53.0/termux-api-app_v0.53.0%2Bgithub.debug.apk	ecf916ff80ae751e65c092f51c055cce4de417ebeea8e449cd0f294afdbde39a
+com.termux.boot	0.8.1	termux-boot-app_v0.8.1+github.debug.apk	https://github.com/termux/termux-boot/releases/download/v0.8.1/termux-boot-app_v0.8.1%2Bgithub.debug.apk	97e6d336f05b59f7cb25e8efa7173e0a6e665f3022b75c6d55a69b6399ecacc8
+com.termux.widget	0.15.0	termux-widget-app_v0.15.0+github.debug.apk	https://github.com/termux/termux-widget/releases/download/v0.15.0/termux-widget-app_v0.15.0%2Bgithub.debug.apk	780ae459be479bedef2146eb00f7bc79f2a4f89dba2bffa7b55c470165bc66ed
+com.termux.x11	nightly-20261027	termux-x11-universal-sharedUid-debug.apk	https://github.com/termux/termux-x11/releases/download/nightly/termux-x11-universal-sharedUid-debug.apk	b85caf9ccdf1cc719ca97573761550cbf76de9354f1227f97c435b98df974a7b
