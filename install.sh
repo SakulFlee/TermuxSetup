@@ -38,7 +38,7 @@ put() {
 for f in start-desktop.sh stop-desktop.sh open-app.sh firefox-tablet \
          download-clipboard.sh download-url.sh opencode-ssh.sh toggle-keyboard.sh \
          close-window.sh show-desktop.sh set-orientation.sh syncthing-sync.sh \
-         plasma-tune.sh clean-url.sh update.sh; do
+         syncthing-open.sh plasma-tune.sh clean-url.sh update.sh; do
   put "$SRC/bin/$f" "$BIN/$f" 755
 done
 put "$SRC/bin/ytdl" "$BIN/ytdl" 755
@@ -129,6 +129,7 @@ make_shortcut "Download Clipboard"  download-clipboard.sh
 make_shortcut "Download URL"        download-url.sh
 make_shortcut "OpenCode"            opencode-ssh.sh
 make_shortcut "Show Desktop"        show-desktop.sh
+make_shortcut "Syncthing"           syncthing-open.sh
 make_shortcut "Sync Now"            syncthing-sync.sh
 make_shortcut "Update Setup"        update.sh
 

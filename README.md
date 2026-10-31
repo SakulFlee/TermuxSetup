@@ -145,6 +145,7 @@ The Termux:Widget shortcuts created by `install.sh` are:
 - Download Clipboard
 - Download URL
 - OpenCode
+- Syncthing
 - Sync Now
 - Update Setup
 
@@ -250,6 +251,9 @@ ytdl --list-formats 'https://example.com/video'
 
 Syncthing runs **on demand**, not continuously:
 
+- **Syncthing** widget → `syncthing-open.sh`, which opens the web UI. If no
+  Syncthing instance is running, `syncthing` starts one first; if one is
+  already running, it detects it and just opens the UI.
 - **Sync Now** widget → `syncthing-sync.sh` (10 minute incremental run).
 - A daily `termux-job-scheduler` job → the same script.
 - The script starts the service, unpauses the configured folder, waits for the
